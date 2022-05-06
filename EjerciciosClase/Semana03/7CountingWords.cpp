@@ -13,9 +13,7 @@ int main(int argc, char const *argv[])
 
 
 	for (auto& t : counts){
-        cout << t.first << " - "
-             << t.second
-             << endl;
-    }
+        cout << t.first << " - " << t.second<< endl;
+     }
 	return 0;
 }
