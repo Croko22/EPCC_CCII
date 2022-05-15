@@ -4,6 +4,12 @@
 #include <regex>
 using namespace std;
 
+// • Reescriba el ejercicio del conteo de palabras. Imprima las
+// palabras en forma alineada.
+// – Escriba una función que encuentre la palabra más grande.
+// – Una función para limpiar caracteres que no sean
+// alfabéticos.
+
 bool cmp(pair<string, int>& a,pair<string, int>& b)
 {
     return a.first.size() > b.first.size();
