@@ -1,14 +1,7 @@
 #include <iostream>
 #include <map>
 #include <algorithm>
-#include <regex>
 using namespace std;
-
-// • Reescriba el ejercicio del conteo de palabras. Imprima las
-// palabras en forma alineada.
-// – Escriba una función que encuentre la palabra más grande.
-// – Una función para limpiar caracteres que no sean
-// alfabéticos.
 
 bool cmp(pair<string, int>& a,pair<string, int>& b)
 {
@@ -28,12 +21,24 @@ void palabraM(map<string, int>& M)
     cout<<"Max element: "<<A.front().first;
 }
 
+string limpiarP(string word ){
+  string temp{};
+    for (int i = 0; i < word.size(); ++i) {
+        if ((word[i] >= 'a' && word[i] <= 'z') || (word[i] >= 'A' && word[i] <= 'Z')) {
+            temp = temp + word[i];
+        }
+    }
+    word = temp;
+    return word;
+}
+
 int main()
 {
   map<string,int> counts{};
   string word{};
   while (cin >> word){
     //Probar con regex para ver si borra
+    word = limpiarP(word);
     ++counts[word];
   }
   for (auto& t : counts){
