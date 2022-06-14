@@ -23,14 +23,14 @@ private:
 	vector<Ficha> fichas;
 public:
 	Scrabble(string _nombre){nombre=_nombre;}
-	void gFichas(){
+	void gFichas(){ //Llenar las fichas del jugador aleartoriamente
 		fichas.reserve(7);
 		for(int i=7; i;i--)
 			fichas.push_back(Ficha(char(rand_ascii(gen)),rand_int(gen)));
 	}
 	void mostrarFichas(){
 		cout<<"El jugador:"<<nombre<<endl;
-		for(Ficha i: fichas) i.imprimir(i);
+		for(Ficha i: fichas) i.imprimir(i); 
 	}
 };
 

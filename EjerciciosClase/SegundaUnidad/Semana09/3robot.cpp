@@ -29,11 +29,9 @@ public:
 //Verificar la lista de ROBOTS
 void vNombres(vector<Robot> r)
 {
-	for (int i = 0; i < r.size(); i++)
-	{
-		for (int j = i+1; j < r.size(); j++)
-		{
-			if (r.at(i).getNombre() == r.at(j).getNombre()){
+	for (int i = 0; i < r.size(); i++){
+		for (int j = i+1; j < r.size(); j++){
+			if (r.at(i).getNombre() == r.at(j).getNombre()){//Encontrar el repetido, notificar y reseteo
 				cout<<"Reseteando nombre repetido"; r.at(j).resetear();
 			}
 		}
@@ -45,17 +43,18 @@ int main()
 {
 	int n;
 	cout<<"Cantidad de robots:\n";cin>>n;
-	vector<Robot> rList(n);
+	vector<Robot> rList(n);//Llenar el vector de acuerdo a la cantidad
+	vNombres(rList);//Verificaciones
 	//ROBOTS GENERADOS
 	cout<<"Robots Generados"<<endl; 
 	for(Robot i:rList) i.imprimir();
-	vNombres(rList);
 
 	//RESETEO
 	for(Robot & i:rList) i.resetear();
+	vNombres(rList);//Verificaciones
 	cout<<"Robots Reseteados"<<endl;
 	for(Robot i:rList) i.imprimir();
-	vNombres(rList);
+	
 
 	return 0;
 }

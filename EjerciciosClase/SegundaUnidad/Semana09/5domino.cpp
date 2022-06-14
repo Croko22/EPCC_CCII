@@ -4,27 +4,25 @@ using namespace std;
 
 class Domino {
 private:
-	vector<pair<int, int>> Fichas;
-	vector<vector<pair<int, int>>> Soluciones;
+	vector<pair<int, int>> Fichas;//Fichas ingresadas
+	vector<vector<pair<int, int>>> Soluciones;//Soluciones generadas
 public:
 	Domino() {}
 	void iFicha(pair<int, int> x) {Fichas.push_back(x);}
 	void mFichas() {for (auto i : Fichas) cout << "[" << i.first << "|" << i.second << "]" << endl;}
 	void genSol() {
 		bool isSol = true;
-		//Iterar el arreglo y cambiar el orden de la ficha
+		//Falta cambiar el orden de la ficha
 		do {
-			//cout << "Nueva perm:" << endl;
-			//for (auto i : Fichas) cout << "[" << i.first << "|" << i.second << "]" << endl;
 			for (int i = 0; i < Fichas.size() - 1; i++) {
 				if (Fichas.at(i).second != Fichas.at(i + 1).first) {isSol = false; break;}
 			}
 			if(Fichas.front().first != Fichas.back().second) {isSol = false;}
-			if (isSol) {Soluciones.push_back(Fichas);}
-			isSol = true;
-		} while (next_permutation(Fichas.begin(), Fichas.end()));
+			if (isSol) {Soluciones.push_back(Fichas);} //Se cumplen las condiciones
+			isSol = true;//Reseteo para sgte ficha
+		} while (next_permutation(Fichas.begin(), Fichas.end())); //Permutar las fichas
 	}
-	void imprimirSol() {
+	void imprimirSol() { //Iterar el contenido de los vectores
 		cout << "SOLUCIONES:" << endl;
 		if (Soluciones.size() > 0) {
 			for (auto j : Soluciones) {
